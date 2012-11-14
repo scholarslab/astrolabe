@@ -10,7 +10,7 @@ An Omeka theme based on the design for [Neatline][neatline]. Thanks to
 ## Installation
 
 * Upload the `astrolabe` directory to your Omeka installation's
-`plugins` directory. See the [Managing Themes][managing-themes] for
+`themes` directory. See the [Managing Themes][managing-themes] for
 Omeka.
 * Activate the theme on the Appearance → Themes page in your Omeka admin
 panel.
@@ -23,24 +23,25 @@ We use an [issue tracker][issues] for feedback on issues and requested improveme
 
 You can contribute in many ways, and not all of them involve adding new features in code. For example, you can:
 
-* report bugs or request features in the [issue tracker][issues].
+* report bugs or request features in the [issue tracker][issues]
 * add documentation and 'how-to' articles to the README or [Wiki](https://github.com/scholarslab/SolrSearch/wiki)
-* help people with questions they ask in the Omeka Forums or developer list.
+* help people with questions they ask in the Omeka Forums or developer list
 * hack on Astrolabe itself by fixing bugs you've found in the [issue
 tracker][issues], or by adding a new feature.
 
 If you do want to file a bug, it will help to include:
 
-* your version of Omeka.
-* the name and version of the browser(s) used.
-* as much detail about the bug as possible (e.g. steps to reproduce it).
+* your version of Omeka
+* the name and version of the browser(s) used
+* as much detail about the bug as possible (e.g. steps to reproduce it)
 * a URL to a page in Omeka (running Astrolabe of course!) where can see
 the bug happening.
  
 If you'd like to contribute code to the theme, just do the following:
 
 1. Fork the theme to your own account.
-2. Create a topic branch for your bug fix or feature.
+2. Create a topic branch for your bug fix or feature, from the `develop`
+   branch of the Astrolabe project.
 3. Commit your changes, and provide plenty of detail in your commit
    message about the changes you propose.
 4. Push that topic branch back to your account, then send us a pull
@@ -53,7 +54,7 @@ the Sass files, then recompile the style sheets.
 
 Astrolabe is developed with the following tools:
 
-* [HTML5 Boilerplate][h5pb]
+* [HTML5 Boilerplate][h5bp]
 * [SCSS][sass]
 * [Compass][compass]
 * [Susy][susy]
