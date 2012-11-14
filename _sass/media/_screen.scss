@@ -1,0 +1,276 @@
+@include border-box-sizing;
+@include establish-baseline;
+
+html {
+  background: #fff url(../images/bg.jpg);
+}
+
+body {
+  @include background-image(
+    linear-gradient(rgba(0,0,0,0.2) 0px, rgba(0,0,0,0) 120px)
+  );
+
+  background-position: 0 2px;
+  border-top: 10px solid #573D56;
+  color: $default-color;
+  font-family: $font-family-default;
+
+  &.admin-bar {
+    #admin-bar {
+      background-color: #573d56 !important;
+      ul {
+        line-height: 0;
+      }
+    }
+  }
+}
+
+/* Forms */
+form {
+
+  .field {
+    @include trailer(1);
+  }
+
+  fieldset {
+    margin:0;
+    padding:0;
+    border:none;
+  }
+
+  textarea {
+    width:100%;
+  }
+
+  textarea,
+  input,
+  select {
+    font-family: $font-family-alternate;
+    color: $default-color;
+    @include adjust-font-size-to(12px);
+    @include adjust-leading-to(1);
+  }
+
+}
+
+/* Navigation */
+nav {
+  ul,
+  ol {
+    list-style:none;
+    margin-left:0;
+    padding-left:0;
+  }
+}
+
+/* Links */
+a {
+
+  text-decoration: none;
+
+  &:link {
+  color: $link-color;
+  }
+
+  &:visited {
+  color: $link-color-light;
+  }
+
+  &:hover,
+  &:active {
+  color:$link-color-alternate;
+  }
+
+}
+
+/* Headings */
+h1 {
+  @include adjust-font-size-to(30px);
+  @include adjust-leading-to(0.875);
+  font-weight:bold;
+  text-shadow: rgba(255,255,255,0.5) -1px 0;
+}
+
+h2 {
+  @include adjust-font-size-to(24px);
+  color: $default-color-light;
+}
+
+h3 {
+  font-weight:bold;
+  color: $default-color-light;
+  @include adjust-font-size-to(20px);
+}
+
+h4 {
+  font-weight:bold;
+}
+
+h5 {
+  font-style:italic;
+}
+
+h6 {
+  font-style:italic;
+  color: $default-color-lighter;
+}
+
+#{headings(1,6)} {
+
+  a {
+  text-decoration:none;
+  }
+
+}
+
+/* Tables */
+table {
+  width:100%;
+  @include adjust-font-size-to(14px);
+  @include rhythm(1);
+
+  th,
+  td {
+    padding: rhythm(0.25);
+  }
+
+  thead {
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+  }
+
+  tr {
+    border-bottom: 1px dotted rgba(0,0,0,0.1);
+  }
+  td {
+    vertical-align:top;
+  }
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+header[role="banner"],
+div[role="main"],
+footer[role="contentinfo"] {
+  max-width: 1000px;
+}
+
+/* Header */
+header[role="banner"] {
+  @include container;
+  h1 {
+    @include adjust-font-size-to(28px);
+  }
+}
+
+/* Simple Search */
+#search-form {
+  position:relative;
+  @include trailer(1);
+
+  input {
+    margin:0;
+    &[type=text] {
+      color: #555;
+      width:100%;
+      border: 0;
+      padding: 2px 30px 2px 5px;
+
+      &:focus {
+        outline:none;
+      }
+    }
+
+    &[type=submit] {
+      position:absolute;
+      background-color: transparent;
+      top: 50%;
+      right: 0em;
+      margin-top:-1em;
+      content: "";
+      text-indent: -9999px;
+      background-image: url('../images/search-icon.png');
+      background-position: 50% 50%;
+      background-repeat:no-repeat;
+      height: 2em;
+      width: 2em;
+      line-height:0;
+      border:none;
+      cursor:pointer;
+      @include opacity(0.5);
+
+      &:hover,
+      &:focus,
+      &:active {
+        outline:none;
+        @include opacity(1);
+      }
+    }
+  }
+}
+
+/* Main navigation */
+#top-nav {
+  clear:both;
+  text-align: center;
+  @include horizontal-nav;
+  @include beveled-line;
+  @include beveled-line(after);
+  @include leader;
+  @include trailer;
+
+  .navigation {
+    @include adjust-leading-to(1.25);
+  }
+}
+
+/* Main Content */
+
+div[role="main"] {
+  @include container;
+}
+
+#featured,
+#recent-items {
+  h2 {
+    @include kicker;
+  }
+}
+
+.items-list div.item,
+#featured > div {
+  margin-bottom: rhythm(1);
+}
+
+.item-img {
+  @include span-columns(2 omega,8);
+  border: 5px solid rgba(0,0,0,0.1);
+
+  img {
+    display:block;
+  }
+}
+
+table#items {
+  td {
+    max-width: 400px;
+  }
+}
+
+/* Footer */
+footer[role="contentinfo"] {
+  @include margin-leader;
+  @include container;
+  @include beveled-line;
+  &:before {
+    margin-bottom:rhythm(1);
+  }
+
+  nav {
+    @include horizontal-nav;
+  }
+}

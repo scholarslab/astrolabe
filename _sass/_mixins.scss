@@ -1,0 +1,148 @@
+@mixin horizontal-nav {
+  ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+
+    li {
+      display:inline;
+
+      & + li:before {
+        color: $default-color-lighter;
+        content: " · ";
+        padding: 0 4px;
+      }
+
+      a {
+        text-decoration:none;
+      }
+    }
+  }
+}
+
+@mixin vertical-nav {
+  li {
+    display:block;
+
+    a {
+      display:block;
+      text-decoration:none;
+    }
+
+    & + li:before {
+      content: "";
+      padding:0;
+    }
+  }
+}
+
+@mixin kicker {
+  font-weight: 600;
+  font-size: 0.8em;
+  color: $light-grey;
+  margin:0;
+  @include serif;
+}
+
+@mixin sans-serif {
+  font-family: Verdana, sans-serif;
+  font-weight:normal;
+  font-style:normal;
+}
+
+@mixin serif {
+  font-family: Georgia, serif;
+  font-weight:normal;
+  font-style:normal;
+}
+
+@mixin headings-sans-serif {
+  @include sans-serif;
+  font-weight: 600;
+}
+
+@mixin button {
+  @include sans-serif;
+  text-align:center;
+  text-decoration:none;
+  text-shadow: -1px -1px 0 $default-color;
+  font-size: 0.8em; 
+  color: #fff;
+  background-color: rgb(115,35,155);
+
+  @include background-image(
+    linear-gradient(
+      rgba(255,255,255,0),
+      rgba(255,255,255, 0.15)
+    )
+  );
+
+  @include box-shadow(rgba(255,255,255,0.375) 0 1px 0 0 inset);
+
+  border: 1px solid rgba(0,0,0,0.15) !important;  
+  @include border-radius(5px);
+}
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  
+  &, .ie & {
+    *zoom: 1;
+  }
+}
+
+@mixin beveled-line($placement: before) {
+  &:#{$placement} {
+    display:block;
+    content:"";
+    height:0;
+    border-top: 1px solid $default-color-lightest;
+    border-bottom: 1px solid #fff;
+  }
+}
+
+@mixin pagination {
+  ul {
+    padding-left:0;
+    list-style:none;
+    @include adjust-font-size-to(14px);
+
+    li {
+      display:inline;
+      font-style:italic;
+      padding-right:0.5em;
+
+      &.pagination_first,
+      &.pagination_previous {
+        &:after {
+          content: " · ";
+          color: $default-color-light;
+          padding-left:0.5em;
+        }
+      }
+
+      &.pagination_next,
+      &.pagination_last {
+        &:before {
+          content: " · ";
+          color: $default-color-light;
+          padding-right:0.5em;
+        }
+      }
+
+    }
+    
+    a {
+      text-decoration:none;
+    }
+  }
+}
+
+

@@ -1,0 +1,36 @@
+@include establish-baseline(20px);
+
+header[role="banner"] {
+  @include padding-leader(1);
+  h1 {
+    @include span-columns(6,8);
+  }
+
+  #search-form {
+    @include span-columns(2 omega, 8);
+    @include adjust-leading-to(2);
+  }
+
+  nav {
+    clear:both;
+    @include leader(1);
+  }
+}
+
+div[role="main"] {
+  #home & {
+    #featured {
+      @include span-columns(4,8);
+    }
+
+    #recent-items {
+      @include span-columns(4 omega);
+
+      .item-img {
+        @include reset-columns;
+        @include span-columns(1 omega,4);
+      }
+    }
+  }
+}
+
