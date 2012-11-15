@@ -11,6 +11,8 @@ echo head(array('title'=>$pageTitle,'bodyid'=>'items','bodyclass' => 'browse'));
         <?php echo public_nav_items(); ?>
     </nav>
 
+    <?php if ($total_results): ?>
+
     <?php echo pagination_links(); ?>
 
     <table id="items" cellspacing="0" cellpadding="0">
@@ -58,6 +60,16 @@ echo head(array('title'=>$pageTitle,'bodyid'=>'items','bodyclass' => 'browse'));
     </tbody>
 </table>
     <div id="pagination-bottom" class="pagination"><?php echo pagination_links(); ?></div>
+
+    <?php else: ?>
+
+        <?php if (total_records('Item') === 0): ?>
+        <p><?php echo __('There are no items.'); ?></p>
+        <?php else: ?>
+        <p><?php echo __('The query searched %s items and returned no results.', total_records('Item')); ?> <?php echo __('Would you like to %s?', link_to_item_search(__('refine your search'))); ?></p>
+        <?php endif; ?>
+
+    <?php endif; ?>
 
     <?php fire_plugin_hook('public_append_to_items_browse', array('view' => $this)); ?>
 
