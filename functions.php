@@ -10,11 +10,10 @@
  * - Theme style sheet
  */
 function queue_theme_assets() {
-  queue_js_file('modernizr.min');
-  get_view()->headScript()->appendFile(src('respond.min.js', 'javascripts'), 'text/javascript', array('conditional' => 'lt IE 9'));
-  get_view()->headScript()->appendFile(src('selectivizr.min.js', 'javascripts'), 'text/javascript', array('conditional' => 'lt IE 9'));
+    queue_js_file('modernizr.min');
+    queue_js_file(array('respond.min', 'selectivizr.min'), 'javascripts', array('conditional' => 'lt IE 9'));
 
-  get_view()->headLink()->prependStylesheet('http://fonts.googleapis.com/css?family=Crimson+Text:400,600,400italic,600italic|Cabin:400,600,400italic', 'screen');
-  queue_css_file('style');
+    get_view()->headLink()->prependStylesheet('http://fonts.googleapis.com/css?family=Crimson+Text:400,600,400italic,600italic|Cabin:400,600,400italic', 'screen');
+    queue_css_file('style');
 }
 
