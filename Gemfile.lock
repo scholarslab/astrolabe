@@ -7,8 +7,8 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.2.0.alpha.93)
     fssm (0.2.9)
-    sass (3.2.1)
-    susy (1.0.1)
+    sass (3.2.3)
+    susy (1.0.5)
       compass (>= 0.12.2)
       sass (>= 3.2.0)
 
