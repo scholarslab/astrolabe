@@ -215,10 +215,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     *zoom: 1;
     max-width: 100%;
     _width: 100%;
-    margin-left: auto;
-    margin-right: auto;
     padding-left: 4%;
     padding-right: 4%;
+    margin-left: auto;
+    margin-right: auto;
   }
   header[role="banner"]:after {
     content: "";
@@ -287,7 +287,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   #top-nav ul li {
     display: inline;
   }
-  #top-nav ul li:not(:first-child):before {
+  #top-nav ul li + li:before {
     color: rgba(60, 60, 60, 0.5);
     content: " · ";
     padding: 0 4px;
@@ -318,10 +318,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     *zoom: 1;
     max-width: 100%;
     _width: 100%;
-    margin-left: auto;
-    margin-right: auto;
     padding-left: 4%;
     padding-right: 4%;
+    margin-left: auto;
+    margin-right: auto;
   }
   div[role="main"]:after {
     content: "";
@@ -367,10 +367,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     *zoom: 1;
     max-width: 100%;
     _width: 100%;
-    margin-left: auto;
-    margin-right: auto;
     padding-left: 4%;
     padding-right: 4%;
+    margin-left: auto;
+    margin-right: auto;
   }
   footer[role="contentinfo"]:after {
     content: "";
@@ -395,7 +395,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   footer[role="contentinfo"] nav ul li {
     display: inline;
   }
-  footer[role="contentinfo"] nav ul li:not(:first-child):before {
+  footer[role="contentinfo"] nav ul li + li:before {
     color: rgba(60, 60, 60, 0.5);
     content: " · ";
     padding: 0 4px;
