@@ -1,4 +1,9 @@
-@import "base";
+// Imports
+@import "compass";
+@import "compass/reset";
+@import "susy";
+@import "mixins";
+@import "variables";
 
 // screen --------------------------------------------------------------------
 @media screen {
