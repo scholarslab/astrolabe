@@ -1,0 +1,89 @@
+// Imports
+@import "compass";
+@import "susy";
+@import "mixins";
+@import "normalize";
+@import "colors";
+
+// Development
+$development: false;
+
+// Compass
+$base-font-size: 20px;
+$base-line-height: 30px;
+$grid-background-baseline-color: rgba(0,80,150,0.2); // Background color for Compass's vertical rhythm.
+$grid-background-column-color: rgba(0,80,150,0.05); // Background color for grid columns
+$grid-background-baseline-height: $base-line-height;
+$default-transition-duration: .5s;
+
+// Susy
+$total-columns: 16;
+$column-width: $base-line-height * 2;
+$gutter-width: $base-line-height / 2;
+
+// Colors
+@function color-wheel($base-color, $color-rule, $color-direction: 'positive') {
+
+  $degrees: 0;
+
+  @if $color-rule == 'analogous' {
+    $degrees: 30;
+  } @else if $color-rule == 'split-complementary' {
+    $degrees: 150;
+  } @else if $color-rule == 'triad' {
+    $degrees: 120;
+  } @else if $color-rule == 'right-triangle' {
+    $degrees: 90;
+  } @else {
+    $degrees: $color-rule;
+  }
+
+  @if $color-direction == 'negative' {
+    $degrees: -$degrees;
+  }
+
+  $color: $base-color;
+  @if $color-rule == 'complementary' {
+    $color: complement($base-color);
+  } @else {
+    $color: adjust-hue($base-color, $degrees);
+  }
+
+  @return $color;
+}
+
+$base-color                     : #573d56;
+$complementary-color: color-wheel($base-color, 'complementary');
+$analogous-positive: color-wheel($base-color, 'analogous');
+$complementary-analogous-positive: color-wheel($analogous-positive, 'complementary');
+
+$triad-positive: color-wheel($base-color, 'triad');
+$triad-negative: color-wheel($base-color, 'triad', 'negative');
+
+$split-complementary-positive: color-wheel($base-color, 'split-complementary');
+$split-complementary-negative: color-wheel($base-color, 'split-complementary', 'negative');
+
+$default-color                  : rgb(75,75,75);
+$default-color-light            : rgba($default-color, 0.75);
+$default-color-lighter          : rgba($default-color, 0.5);
+$default-color-lightest         : rgba($default-color, 0.1);
+
+$link-color                     : $base-color;
+$link-visited-color             : lighten($link-color, 10%);
+$link-hover-color               : lighten($link-color, 5%);
+$link-focus-color               : $link-hover-color;
+$link-active-color              : $link-color;
+
+$link-color-alternate: rgb(186, 158, 6);
+
+$code-color: $split-complementary-negative;
+$ins-color: $code-color;
+
+// Fonts
+$serif: "Crimson Text", Georgia, "Times New Roman", Times, serif;
+$sans-serif: "Cabin", "Lucida Grande", Verdana, sans-serif;
+$monospace: "Andale Mono", monospace;
+
+$default-font: $serif;
+$alt-font: $sans-serif;
+$heading-font: $alt-font;

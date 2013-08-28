@@ -1,0 +1,81 @@
+$base-color: #f53;
+
+@function color-wheel($base-color, $color-rule, $color-direction: 'positive') {
+
+  $degrees: 0;
+
+  @if $color-rule == 'analogous' {
+    $degrees: 30;
+  } @else if $color-rule == 'split-complementary' {
+    $degrees: 150;
+  } @else if $color-rule == 'triad' {
+    $degrees: 120;
+  } @else if $color-rule == 'right-triangle' {
+    $degrees: 90;
+  }
+
+  @if $color-direction == 'negative' {
+    $degrees: -$degrees;
+  }
+
+  $color: $base-color;
+  @if $color-rule == 'complementary' {
+    $color: complement($base-color);
+  } @else {
+    $color: adjust-hue($base-color, $degrees);
+  }
+
+  @return $color;
+}
+
+$complementary-color: complement($base-color);
+$analogous-negative: adjust-hue($base-color, -30);
+$analogous-positive: adjust-hue($base-color, 30);
+$split-complementary-negative: adjust-hue($base-color, -150);
+$split-complementary-positive: adjust-hue($base-color, 150);
+$triad-negative: adjust-hue($base-color, -120);
+$triad-positive: adjust-hue($base-color, 120);
+
+$complementary-analogous-positive: adjust-hue($complementary-color, 30);
+
+$right-triangle-negative: adjust-hue($base-color, -90);
+$right-triangle-positive: adjust-hue($base-color, 90);
+
+div.colors div{
+  width: 2em;
+  height: 2em;
+  border-radius: 1em;
+  display:inline-block;
+}
+
+.base-color {
+  background: $base-color;
+}
+
+.complementary-color {
+  background: color-wheel($base-color, 'complementary');
+}
+
+.complementary-analogous-positive {
+  background: adjust-hue($complementary-color, 30);
+}
+
+.darken {
+  $base-color: darken($base-color, 25%);
+}
+
+@each $color in analogous, split-complementary, triad, right-triangle {
+  @each $value in negative, positive {
+    .#{$color}-#{$value}{
+      background: color-wheel($base-color, $color, $value);
+    }
+  }
+}
+
+div[role=main] {
+  @include clearfix;
+}
+
+section {
+  @include span-columns(2,10);
+}

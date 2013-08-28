@@ -1,3 +1,20 @@
+@mixin rgba-background-color($color, $alpha) {
+  $rgba: rgba($color, $alpha);
+  $ie-hex-str: ie-hex-str($rgba);
+  background-color: transparent;
+  background-color: $rgba;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+  zoom: 1;
+}
+
+// Generates a valid RGB value for browsers that can't handle RGBA.
+@mixin rgba-color($color, $alpha, $bgcolor: #fff) {
+  $percent : $alpha * 100;
+  $weight: 100 - $percent;
+  color: mix($color, $bgcolor, $weight);
+  color: rgba($color, $alpha);
+}
+
 @mixin horizontal-nav {
   ul {
     list-style:none;
@@ -7,7 +24,7 @@
     li {
       display:inline;
 
-      & + li:before {
+      &:not(:first-child):before {
         color: $default-color-lighter;
         content: " · ";
         padding: 0 4px;
@@ -24,51 +41,26 @@
   li {
     display:block;
 
-    a {
-      display:block;
-      text-decoration:none;
-    }
-
     & + li:before {
       content: "";
       padding:0;
     }
   }
-}
 
-@mixin kicker {
-  font-weight: 600;
-  font-size: 0.8em;
-  color: $light-grey;
-  margin:0;
-  @include serif;
-}
+  a {
+    display:block;
+    text-decoration:none;
+  }
 
-@mixin sans-serif {
-  font-family: Verdana, sans-serif;
-  font-weight:normal;
-  font-style:normal;
-}
-
-@mixin serif {
-  font-family: Georgia, serif;
-  font-weight:normal;
-  font-style:normal;
-}
-
-@mixin headings-sans-serif {
-  @include sans-serif;
-  font-weight: 600;
 }
 
 @mixin button {
-  @include sans-serif;
+  font-family: $alt-font;
   text-align:center;
   text-decoration:none;
   text-shadow: -1px -1px 0 $default-color;
-  font-size: 0.8em; 
   color: #fff;
-  background-color: rgb(115,35,155);
+  background-color: $base-color;
 
   @include background-image(
     linear-gradient(
@@ -77,9 +69,9 @@
     )
   );
 
-  @include box-shadow(rgba(255,255,255,0.375) 0 1px 0 0 inset);
+  @include box-shadow(rgba(white,0.375) 0 1px 0 0 inset);
 
-  border: 1px solid rgba(0,0,0,0.15) !important;  
+  border: 1px solid rgba(black,0.15) !important;
   @include border-radius(5px);
 }
 
@@ -88,12 +80,10 @@
   &:after {
     content: "";
     display: table;
+    width:100%;
   }
-  &:after {
-    clear: both;
-  }
-  
-  &, .ie & {
+
+  .ie & {
     *zoom: 1;
   }
 }
@@ -112,7 +102,6 @@
   ul {
     padding-left:0;
     list-style:none;
-    @include adjust-font-size-to(14px);
 
     li {
       display:inline;
@@ -138,11 +127,35 @@
       }
 
     }
-    
+
     a {
       text-decoration:none;
     }
   }
 }
-
-
+@mixin splash-button {
+  padding: 0 1em;
+  margin: 0.5em 0.6em;
+  line-height: 1em;
+  font-style: italic;
+  text-decoration: none;
+  font-size: 1.25em;
+  line-height: 1.4em;
+  padding: 10px 15px;
+  border-radius: 7px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  background-color: hsl(299, 17%, 28%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#644765", endColorstr="#533b53");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#644765), to(#533b53));
+  background-image: -moz-linear-gradient(top, #644765, #533b53);
+  background-image: -ms-linear-gradient(top, #644765, #533b53);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #644765), color-stop(100%, #533b53));
+  background-image: -webkit-linear-gradient(top, #644765, #533b53);
+  background-image: -o-linear-gradient(top, #644765, #533b53);
+  background-image: linear-gradient(#644765, #533b53);
+  border-color: #533b53 #533b53 hsl(299, 17%, 26.5%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.09);
+  -webkit-font-smoothing: antialiased;
+}
