@@ -7,8 +7,9 @@
 @include establish-baseline;
 
 html {
+  background-color: #F3F3EB;
   @include background-image(
-    linear-gradient(rgba(0,0,0,0.2) 0px, rgba(0,0,0,0) 120px),
+    linear-gradient(rgba(black,0.1) 0, transparent 200px),
     url('../images/bg.jpg')
   );
   background-position: 0 2px;
@@ -319,12 +320,20 @@ hr {
   }
 }
 
+/* Have to use more specific selector to override Omeka core styles. */
 body #admin-bar {
   background: transparent !important;
   @include box-shadow(none !important);
   text-align:center !important;
   @include clearfix;
   @include beveled-line(after);
+  @include adjust-font-size-to(12px);
+  margin:0;
+  padding:0;
+
+  ul {
+    @include adjust-leading-to(1.5, 12px);
+  }
 
   li {
     a {
@@ -385,7 +394,7 @@ header[role=banner] {
 }
 
 /* Simple Search */
-#search-form {
+#search-container {
   position:relative;
   @include trailer(1);
   max-width: space(10, 18);
@@ -443,20 +452,24 @@ footer[role=contentinfo] {
   }
 
   header[role=banner] {
+    @include padding-leader(1);
+
     h1 {
       @include span-columns(12,18);
-      margin-top: rhythm(1);
       text-align:left;
+      @include adjust-leading-to(1,32px);
+      margin:0;
     }
 
-    #search-form {
+    #search-container {
       @include span-columns(6 omega, 18);
-      margin-top: rhythm(2);
-
+      form {
+        margin:0;
+      }
     }
 
     nav {
-      clear:both;
+      @include clearfix;
     }
 
   }

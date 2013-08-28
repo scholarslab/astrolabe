@@ -494,11 +494,12 @@ section {
   }
 
   html {
-    background-image: -webkit-gradient(linear, 50% 0%, 50% 120, color-stop(0%, rgba(0, 0, 0, 0.2)), color-stop(100%, rgba(0, 0, 0, 0))), url("../images/bg.jpg");
-    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.2) 0px, rgba(0, 0, 0, 0) 120px), url("../images/bg.jpg");
-    background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.2) 0px, rgba(0, 0, 0, 0) 120px), url("../images/bg.jpg");
-    background-image: -o-linear-gradient(rgba(0, 0, 0, 0.2) 0px, rgba(0, 0, 0, 0) 120px), url("../images/bg.jpg");
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0px, rgba(0, 0, 0, 0) 120px), url("../images/bg.jpg");
+    background-color: #F3F3EB;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 200, color-stop(0%, rgba(0, 0, 0, 0.1)), color-stop(100%, transparent)), url("../images/bg.jpg");
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.1) 0%, transparent 200px), url("../images/bg.jpg");
+    background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.1) 0%, transparent 200px), url("../images/bg.jpg");
+    background-image: -o-linear-gradient(rgba(0, 0, 0, 0.1) 0%, transparent 200px), url("../images/bg.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, transparent 200px), url("../images/bg.jpg");
     background-position: 0 2px;
     border-top: 10px solid #483247;
   }
@@ -830,12 +831,17 @@ section {
     font-style: italic;
   }
 
+  /* Have to use more specific selector to override Omeka core styles. */
   body #admin-bar {
     background: transparent !important;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
     box-shadow: none !important;
     text-align: center !important;
+    font-size: 0.6em;
+    line-height: 2.5em;
+    margin: 0;
+    padding: 0;
   }
   body #admin-bar:before, body #admin-bar:after {
     content: "";
@@ -850,7 +856,10 @@ section {
     content: "";
     height: 0;
     border-top: 1px solid rgba(75, 75, 75, 0.1);
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+  }
+  body #admin-bar ul {
+    line-height: 3.75em;
   }
   body #admin-bar li a {
     text-decoration: none;
@@ -891,14 +900,14 @@ section {
     content: "";
     height: 0;
     border-top: 1px solid rgba(75, 75, 75, 0.1);
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.75);
   }
   header[role=banner] nav:after {
     display: block;
     content: "";
     height: 0;
     border-top: 1px solid rgba(75, 75, 75, 0.1);
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.75);
   }
   header[role=banner] nav ul {
     text-align: center;
@@ -909,26 +918,26 @@ section {
   }
 
   /* Simple Search */
-  #search-form {
+  #search-container {
     position: relative;
     margin-bottom: 1.5em;
     max-width: 56.17978%;
     margin-left: auto;
     margin-right: auto;
   }
-  #search-form input {
+  #search-container input {
     margin: 0;
   }
-  #search-form input[type=text] {
+  #search-container input[type=text] {
     color: #555;
     width: 100%;
     border: 0;
     padding: 2px 30px 2px 5px;
   }
-  #search-form input[type=text]:focus {
+  #search-container input[type=text]:focus {
     outline: none;
   }
-  #search-form input[type=submit] {
+  #search-container input[type=submit] {
     position: absolute;
     background-color: transparent;
     top: 50%;
@@ -947,7 +956,7 @@ section {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
     opacity: 0.5;
   }
-  #search-form input[type=submit]:hover, #search-form input[type=submit]:focus, #search-form input[type=submit]:active {
+  #search-container input[type=submit]:hover, #search-container input[type=submit]:focus, #search-container input[type=submit]:active {
     outline: none;
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
@@ -958,7 +967,7 @@ section {
     content: "";
     height: 0;
     border-top: 1px solid rgba(75, 75, 75, 0.1);
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.75);
   }
 }
 @media screen and (min-width: 885px) {
@@ -966,21 +975,32 @@ section {
     text-align: right !important;
   }
 
+  header[role=banner] {
+    padding-top: 1.5em;
+  }
   header[role=banner] h1 {
     width: 66.29213%;
     float: left;
     margin-right: 1.1236%;
-    margin-top: 1.5em;
     text-align: left;
+    line-height: 0.9375em;
+    margin: 0;
   }
-  header[role=banner] #search-form {
+  header[role=banner] #search-container {
     width: 32.58427%;
     float: right;
     margin-right: 0;
-    margin-top: 3em;
   }
-  header[role=banner] nav {
-    clear: both;
+  header[role=banner] #search-container form {
+    margin: 0;
+  }
+  header[role=banner] nav:before, header[role=banner] nav:after {
+    content: "";
+    display: table;
+    width: 100%;
+  }
+  .ie header[role=banner] nav {
+    *zoom: 1;
   }
 
   .show .element-set {
