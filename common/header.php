@@ -22,7 +22,7 @@
     <header role="banner">
 
         <?php fire_plugin_hook('public_header', array('view'=>$this)); ?>
-        
+
         <?php echo theme_header_image(); ?>
 
         <h1 id="site-title"><?php echo link_to_home_page(theme_logo()); ?></h1>
