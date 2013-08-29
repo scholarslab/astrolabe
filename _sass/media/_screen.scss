@@ -55,40 +55,49 @@ h1 {
   @include adjust-font-size-to(32px);
   @include adjust-leading-to(2,32px);
   text-shadow: rgba(255,255,255,0.5) -1px 0;
+
+  div[role=main] &:first-child {
+    @include adjust-font-size-to(40px);
+    @include adjust-leading-to(2, 40px);
+  }
 }
 
 h2 {
-  @include adjust-font-size-to(24px);
-  @include leader(2, 24px);
+  @include adjust-font-size-to(28px);
+  @include rhythm(2,0,0,0,28px);
 
   h1 + &,
   h1 ~ * &:first-child {
-    @include leader(1, 24px);
+    @include rhythm(1,0,0,0,28px);
   }
 
 }
 
 h3 {
-  @include adjust-font-size-to(20px);
+  @include adjust-font-size-to(24px);
   color: $default-color-light;
-  font-weight:normal;
-  @include leader(1, 20px);
+  @include rhythm(1,0,0,0,24px);
+  h2 &,
+  h2 + * & {
+    margin-top:0 !important;
+  }
 }
 
 h4 {
   @include adjust-font-size-to($base-font-size);
-  @include leader(2);
+  font-weight:bold;
+  @include rhythm(2,0,0,0);
   h3 + & {
-    @include leader(1);
+    @include rhythm(1,0,0,1);
   }
 }
 
 h5 {
   @include adjust-font-size-to($base-font-size);
   color: $default-color-light;
-  @include leader(2);
+  @include rhythm(2,0,0,1);
   h4 + & {
-    @include leader(1);
+    @include rhythm(1,0,0,0);
   }
 
 }
@@ -97,15 +106,23 @@ h6 {
   @include adjust-font-size-to($base-font-size);
   font-style:italic;
   color: $default-color-light;
-  @include leader(2);
+  @include rhythm(2,0,0,2);
   h5 + & {
-    @include leader(1);
+    @include rhythm(1,0,0,1);
   }
 }
 
 #{headings(3,6)} {
-   + p {
+  + p,
+  + ul,
+  + ol {
     margin-top:0;
+  }
+
+  + .element-text {
+    :first-child {
+      margin-top:0;
+    }
   }
 }
 
@@ -136,6 +153,7 @@ blockquote {
 
 /* Forms */
 form {
+  @include rhythm(1,0,0,1);
 
   .field {
     @include trailer(1);
@@ -153,13 +171,20 @@ form {
 
   textarea,
   input,
-  select {
+  select,
+  button {
     font-family: $alt-font;
     color: $default-color;
-    @include adjust-font-size-to(12px);
-    @include adjust-leading-to(1, 12px);
+    @include adjust-font-size-to(16px);
+    line-height:1;
+    padding: rhythm(0.25, 16px);
   }
 
+  textarea,
+  input[type=text] {
+    border:1px solid $default-color-lightest;
+    @include box-shadow(0);
+  }
 }
 
 nav {
@@ -179,9 +204,9 @@ figure {
 }
 
 figcaption {
-  @include adjust-font-size-to(14px);
-  @include leader(1, 14px);
-  @include adjust-leading-to(1, 14px);
+  @include adjust-font-size-to(16px);
+  @include leader(1, 16px);
+  @include adjust-leading-to(1, 16px);
   color: $default-color-light;
 }
 
@@ -258,6 +283,7 @@ tr {
 
 td {
   vertical-align:top;
+  padding: rhythm(0.25);
 }
 
 img {
@@ -407,11 +433,7 @@ header[role=banner] {
       color: #555;
       width:100%;
       border: 0;
-      padding: 2px 30px 2px 5px;
-
-      &:focus {
-        outline:none;
-      }
+      padding-right: 2em;
     }
 
     &[type=submit] {
@@ -442,8 +464,46 @@ header[role=banner] {
   }
 }
 
+div[role=main] {
+  @include padding-leader(1);
+  @include padding-trailer(1);
+}
+
+.pagination {
+  @include inline-list;
+
+  form {
+    display:inline;
+  }
+
+  input {
+    width: 2em;
+  }
+
+  a {
+    text-decoration:none;
+  }
+}
+
+#advanced-search-form .field + .field {
+  border-top: 1px dotted $default-color-lightest;
+  @include padding-leader(1);
+}
+
+#search-narrow-by-fields {
+  select,
+  input[type=text] {
+    margin-right: rhythm(0.25);
+  }
+}
+
 footer[role=contentinfo] {
   @include beveled-line;
+  @include padding-leader(1);
+  p,ul {
+    @include adjust-font-size-to(16px);
+    @include adjust-leading-to(1,16px);
+  }
 }
 
 @include at-breakpoint(12) {
@@ -486,6 +546,32 @@ footer[role=contentinfo] {
       clear:right;
     }
   }
+
+#advanced-search-form {
+  .field {
+    @include clearfix;
+
+    label,
+    .label {
+      @include span-columns(6, 18);
+      text-align:right;
+    }
+
+    .inputs {
+      @include span-columns(12 omega, 18);
+    }
+
+    .add_search {
+      clear:right;
+      @include push(6, 18);
+    }
+  }
+
+  .submit {
+    @include push(6, 18);
+  }
+}
+
 }
 
 @if $development == true {
