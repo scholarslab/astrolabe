@@ -506,11 +506,12 @@ div[role=main] {
 }
 
 footer[role=contentinfo] {
-  @include beveled-line;
-  @include padding-leader(1);
+  @include beveled-line(before);
+  text-align:center;
   p,ul {
     @include adjust-font-size-to(16px);
     @include adjust-leading-to(1,16px);
+    @include rhythm(1, 0, 0, 1, 16px);
   }
 }
 
@@ -577,6 +578,20 @@ footer[role=contentinfo] {
 
   .submit {
     @include push(6, 18);
+  }
+}
+
+footer[role=contentinfo] {
+  @include clearfix;
+  text-align:left;
+
+  nav {
+    @include span-columns(12 omega, 18);
+    text-align:right;
+  }
+
+  #footer-text {
+    @include span-columns(6, 18);
   }
 }
 

@@ -1063,7 +1063,7 @@ section {
   }
 
   footer[role=contentinfo] {
-    padding-top: 1.5em;
+    text-align: center;
   }
   footer[role=contentinfo]:before {
     display: block;
@@ -1076,6 +1076,10 @@ section {
     font-size: 0.8em;
     line-height: 1.875em;
     line-height: 1.875em;
+    margin-top: 1.875em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 1.875em;
   }
 }
 @media screen and (min-width: 885px) {
@@ -1151,6 +1155,29 @@ section {
   }
   #advanced-search-form .submit {
     margin-left: 33.70787%;
+  }
+
+  footer[role=contentinfo] {
+    text-align: left;
+  }
+  footer[role=contentinfo]:before, footer[role=contentinfo]:after {
+    content: "";
+    display: table;
+    width: 100%;
+  }
+  .ie footer[role=contentinfo] {
+    *zoom: 1;
+  }
+  footer[role=contentinfo] nav {
+    width: 66.29213%;
+    float: right;
+    margin-right: 0;
+    text-align: right;
+  }
+  footer[role=contentinfo] #footer-text {
+    width: 32.58427%;
+    float: left;
+    margin-right: 1.1236%;
   }
 }
 @media print {
