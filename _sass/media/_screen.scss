@@ -64,11 +64,12 @@ h1 {
 
 h2 {
   @include adjust-font-size-to(28px);
-  @include rhythm(2,0,0,0,28px);
+  @include adjust-leading-to(1,28px);
+  @include rhythm(2,0,0,1,28px);
 
   h1 + &,
   h1 ~ * &:first-child {
-    @include rhythm(1,0,0,0,28px);
+    @include rhythm(1,0,0,1,28px);
   }
 
 }

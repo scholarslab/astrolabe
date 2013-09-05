@@ -579,16 +579,17 @@ section {
   h2 {
     font-size: 1.4em;
     line-height: 2.14286em;
+    line-height: 1.07143em;
     margin-top: 2.14286em;
     padding-top: 0em;
     padding-bottom: 0em;
-    margin-bottom: 0em;
+    margin-bottom: 1.07143em;
   }
   h1 + h2, h1 ~ * h2:first-child {
     margin-top: 1.07143em;
     padding-top: 0em;
     padding-bottom: 0em;
-    margin-bottom: 0em;
+    margin-bottom: 1.07143em;
   }
 
   h3 {
