@@ -41,10 +41,14 @@
 
 <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
 
-<nav>
-<ul class="item-pagination navigation">
-    <li id="previous-item" class="previous"><?php echo link_to_previous_item_show(); ?></li>
-    <li id="next-item" class="next"><?php echo link_to_next_item_show(); ?></li>
+<nav class="item-pagination">
+<ul class="navigation">
+    <?php if ($previous = link_to_previous_item_show()): ?>
+    <li id="previous-item" class="previous"><?php echo $previous; ?></li>
+    <?php endif; ?>
+    <?php if ($next = link_to_next_item_show()): ?>
+    <li id="next-item" class="next"><?php echo $next; ?></li>
+    <?php endif; ?>
 </ul>
 </nav>
 

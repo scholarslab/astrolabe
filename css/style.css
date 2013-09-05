@@ -1046,9 +1046,10 @@ section {
   }
 
   .item-pagination {
+    display: block;
     clear: both;
     text-align: center;
-    padding-top: 3em;
+    padding-top: 1.5em;
   }
 
   #advanced-search-form .field + .field {
