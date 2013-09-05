@@ -485,6 +485,12 @@ div[role=main] {
   }
 }
 
+.item-pagination {
+  clear:both;
+  text-align:center;
+  padding-top:rhythm(2);
+}
+
 #advanced-search-form .field + .field {
   border-top: 1px dotted $default-color-lightest;
   @include padding-leader(1);

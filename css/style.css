@@ -1044,6 +1044,12 @@ section {
     text-decoration: none;
   }
 
+  .item-pagination {
+    clear: both;
+    text-align: center;
+    padding-top: 3em;
+  }
+
   #advanced-search-form .field + .field {
     border-top: 1px dotted rgba(75, 75, 75, 0.1);
     padding-top: 1.5em;
