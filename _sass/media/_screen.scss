@@ -77,7 +77,7 @@ h3 {
   @include adjust-font-size-to(24px);
   color: $default-color-light;
   @include rhythm(1,0,0,0,24px);
-  h2 &,
+  h2 + &,
   h2 + * & {
     margin-top:0 !important;
   }

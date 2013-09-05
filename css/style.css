@@ -600,7 +600,7 @@ section {
     padding-bottom: 0em;
     margin-bottom: 0em;
   }
-  h2 h3, h2 + * h3 {
+  h2 + h3, h2 + * h3 {
     margin-top: 0 !important;
   }
 
