@@ -466,8 +466,35 @@ header[role=banner] {
 }
 
 div[role=main] {
-  @include padding-leader(1);
   @include padding-trailer(1);
+}
+
+#featured-item,
+#recent-items {
+  .image {
+    width: rhythm(2.5);
+    height: rhythm(2.5);
+    float:left;
+    display:block;
+    margin-right: gutter();
+    margin-top: rhythm(0.25);
+  }
+
+  .item-description {
+    margin-top:0;
+    @include adjust-font-size-to(16px);
+    @include adjust-leading-to(1,16px);
+  }
+
+  .item + .item {
+    border-top: 1px dotted #ccc;
+  }
+}
+
+#recent-items {
+  .item {
+    @include clearfix;
+  }
 }
 
 .pagination {
@@ -554,6 +581,13 @@ footer[role=contentinfo] {
       @include span-columns(6 omega, 18);
       clear:right;
     }
+  }
+
+  #featured {
+    @include span-columns(9, 18);
+  }
+  #recent-items {
+    @include span-columns(9 omega, 18);
   }
 
 #advanced-search-form {

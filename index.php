@@ -9,13 +9,14 @@
 <div id="featured">
 <?php if (get_theme_option('Display Featured Item') !== '0'): ?>
 <div id="featured-item">
-    <h2>Featured Item(s)</h2>
+<h2><?php echo __('Featured Item'); ?></h2>
     <?php echo random_featured_items(); ?>
 </div>
 <?php endif; ?>
 
 <?php if (get_theme_option('Display Featured Collection') !== '0'): ?>
 <div id="featured-collection">
+<h2><?php echo __('Featured Collection'); ?></h2>
     <?php echo random_featured_collection(); ?>
 </div>
 <?php endif; ?>
@@ -36,27 +37,21 @@
     if (has_loop_records('items')):
     ?>
 
-    <div class="items-list">
-        <?php foreach (loop('items') as $item): ?>
-        <div class="item">
+    <?php foreach (loop('items') as $item): ?>
+    <div class="item">
 
-            <h3><?php echo link_to_item(); ?></h3>
+        <h3 class="item-title"><?php echo link_to_item(); ?></h3>
 
-            <?php if(metadata('item', 'has thumbnail')): ?>
-            <div class="item-img">
-                <?php echo link_to_item(item_image('square_thumbnail')); ?>
-            </div>
-            <?php endif; ?>
+        <?php if(metadata('item', 'has thumbnail')): ?>
+        <?php echo link_to_item(item_image('square_thumbnail'), array('class' => 'image')); ?>
+        <?php endif; ?>
 
-            <?php if($desc = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>150))): ?>
+        <?php if($desc = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>150))): ?>
+        <p class="item-description"><?php echo $desc; ?><?php echo link_to_item('see more',(array('class'=>'show'))) ?></p>
+        <?php endif; ?>
 
-            <div class="item-description"><?php echo $desc; ?><?php echo link_to_item('see more',(array('class'=>'show'))) ?></div>
-
-            <?php endif; ?>
-
-        </div>
-        <?php endforeach; ?>
     </div>
+    <?php endforeach; ?>
 
     <?php else: ?>
 

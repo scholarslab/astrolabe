@@ -1023,8 +1023,37 @@ section {
   }
 
   div[role=main] {
-    padding-top: 1.5em;
     padding-bottom: 1.5em;
+  }
+
+  #featured-item .image,
+  #recent-items .image {
+    width: 3.75em;
+    height: 3.75em;
+    float: left;
+    display: block;
+    margin-right: 1.26582%;
+    margin-top: 0.375em;
+  }
+  #featured-item .item-description,
+  #recent-items .item-description {
+    margin-top: 0;
+    font-size: 0.8em;
+    line-height: 1.875em;
+    line-height: 1.875em;
+  }
+  #featured-item .item + .item,
+  #recent-items .item + .item {
+    border-top: 1px dotted #ccc;
+  }
+
+  #recent-items .item:before, #recent-items .item:after {
+    content: "";
+    display: table;
+    width: 100%;
+  }
+  .ie #recent-items .item {
+    *zoom: 1;
   }
 
   .pagination {
@@ -1127,6 +1156,18 @@ section {
     float: right;
     margin-right: 0;
     clear: right;
+  }
+
+  #featured {
+    width: 49.4382%;
+    float: left;
+    margin-right: 1.1236%;
+  }
+
+  #recent-items {
+    width: 49.4382%;
+    float: right;
+    margin-right: 0;
   }
 
   #advanced-search-form .field:before, #advanced-search-form .field:after {
