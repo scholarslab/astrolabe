@@ -491,8 +491,10 @@ div[role=main] {
   }
 }
 
-#recent-items {
-  .item {
+#recent-items,
+.browse {
+  .item,
+  .collection {
     @include clearfix;
   }
 }
@@ -517,6 +519,7 @@ div[role=main] {
 
 .pagination {
   @include inline-list;
+  @include span-columns(9, 18);
 
   form {
     display:inline;
@@ -528,6 +531,24 @@ div[role=main] {
 
   a {
     text-decoration:none;
+  }
+}
+
+#sort-links {
+  @include span-columns(9 omega, 18);
+  text-align:right;
+
+  ul {
+    @include inline-list;
+
+    a {
+      text-decoration:none;
+    }
+
+    li + li:before {
+      content: " · ";
+      color: $default-color-lighter;
+    }
   }
 }
 
