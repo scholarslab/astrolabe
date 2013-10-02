@@ -1047,21 +1047,21 @@ section {
     border-top: 1px dotted #ccc;
   }
 
-  #recent-items .item:before, #recent-items .item:after,
-  #recent-items .collection:before,
-  #recent-items .collection:after,
-  .browse .item:before,
-  .browse .item:after,
-  .browse .collection:before,
-  .browse .collection:after {
+  #recent-items div.item:before, #recent-items div.item:after,
+  #recent-items div.collection:before,
+  #recent-items div.collection:after,
+  .browse div.item:before,
+  .browse div.item:after,
+  .browse div.collection:before,
+  .browse div.collection:after {
     content: "";
     display: table;
     width: 100%;
   }
-  .ie #recent-items .item, .ie
-  #recent-items .collection, .ie
-  .browse .item, .ie
-  .browse .collection {
+  .ie #recent-items div.item, .ie
+  #recent-items div.collection, .ie
+  .browse div.item, .ie
+  .browse div.collection {
     *zoom: 1;
   }
 

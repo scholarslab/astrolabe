@@ -493,8 +493,8 @@ div[role=main] {
 
 #recent-items,
 .browse {
-  .item,
-  .collection {
+  div.item,
+  div.collection {
     @include clearfix;
   }
 }
