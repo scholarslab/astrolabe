@@ -15,7 +15,7 @@ echo head(array('title'=>$pageTitle,'bodyid'=>'collections','bodyclass' => 'brow
 
         <?php if ($description = metadata('collection', array('Dublin Core', 'Description'), array('snippet' => 150))): ?>
         <div class="element">
-            <p class="element-text"><?php echo $description; echo link_to_collection('show more.');?></div>
+            <p class="element-text"><?php echo $description; echo link_to_collection('show more.');?></p>
         </div>
         <?php endif; ?>
         
