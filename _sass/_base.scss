@@ -19,7 +19,7 @@ $default-transition-duration: .5s;
 // Susy
 $total-columns: 16;
 $column-width: $base-line-height * 2;
-$gutter-width: $base-line-height / 2;
+$gutter-width: $base-line-height;
 
 // Colors
 @function color-wheel($base-color, $color-rule, $color-direction: 'positive') {

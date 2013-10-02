@@ -13,10 +13,9 @@ echo head(array('title'=>$pageTitle,'bodyid'=>'collections','bodyclass' => 'brow
 
         <h2><?php echo link_to_collection(); ?></h2>
 
-        <?php if (metadata('collection', array('Dublin Core', 'Description'))): ?>
+        <?php if ($description = metadata('collection', array('Dublin Core', 'Description'), array('snippet' => 150))): ?>
         <div class="element">
-            <h3><?php echo __('Description'); ?></h3>
-            <div class="element-text"><?php echo text_to_paragraphs(metadata('collection', array('Dublin Core', 'Description'), array('snippet'=>150))); ?></div>
+            <p class="element-text"><?php echo $description; echo link_to_collection('show more.');?></div>
         </div>
         <?php endif; ?>
         

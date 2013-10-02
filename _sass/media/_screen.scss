@@ -497,6 +497,24 @@ div[role=main] {
   }
 }
 
+#featured-exhibit {
+  .image {
+    width: rhythm(2.5);
+    height: rhythm(2.5);
+    float:right;
+    display:block;
+    margin-left: gutter();
+    margin-top: rhythm(0.25);
+  }
+
+  .description {
+    margin-top:0;
+    @include adjust-font-size-to(16px);
+    @include adjust-leading-to(1,16px);
+  }
+
+}
+
 .pagination {
   @include inline-list;
 
