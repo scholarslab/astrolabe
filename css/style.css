@@ -1133,6 +1133,24 @@ section {
     padding-top: 1.5em;
   }
 
+  .browse .item h2 {
+    margin-bottom: 0;
+  }
+  .browse .item .item-img {
+    float: right;
+    margin-left: 2.12766%;
+  }
+  .browse .item + .item {
+    margin-top: 1.5em;
+  }
+  .browse .item + .item:before {
+    display: block;
+    content: "";
+    height: 0;
+    border-top: 1px solid rgba(75, 75, 75, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+  }
+
   #advanced-search-form .field + .field {
     border-top: 1px dotted rgba(75, 75, 75, 0.1);
     padding-top: 1.5em;

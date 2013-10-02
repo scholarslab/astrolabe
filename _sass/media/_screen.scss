@@ -559,6 +559,24 @@ div[role=main] {
   padding-top:rhythm(1);
 }
 
+.browse {
+  .item {
+    h2 {
+      margin-bottom:0;
+    }
+
+    .item-img {
+      float:right;
+      margin-left: gutter();
+    }
+
+    & + .item {
+      @include beveled-line;
+      margin-top: rhythm(1);
+    }
+  }
+}
+
 #advanced-search-form .field + .field {
   border-top: 1px dotted $default-color-lightest;
   @include padding-leader(1);
