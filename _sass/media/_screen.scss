@@ -577,6 +577,22 @@ div[role=main] {
   }
 }
 
+#outputs {
+  @include clearfix;
+  @include leader(2);
+  .outputs-label {
+    font-weight:bold;
+    &:after {
+      content:": ";
+    }
+  }
+
+  p {
+    margin-top:0;
+    display:inline;
+  }
+}
+
 #advanced-search-form .field + .field {
   border-top: 1px dotted $default-color-lightest;
   @include padding-leader(1);

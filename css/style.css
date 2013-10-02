@@ -1151,6 +1151,28 @@ section {
     border-bottom: 1px solid rgba(255, 255, 255, 0.75);
   }
 
+  #outputs {
+    margin-top: 3em;
+  }
+  #outputs:before, #outputs:after {
+    content: "";
+    display: table;
+    width: 100%;
+  }
+  .ie #outputs {
+    *zoom: 1;
+  }
+  #outputs .outputs-label {
+    font-weight: bold;
+  }
+  #outputs .outputs-label:after {
+    content: ": ";
+  }
+  #outputs p {
+    margin-top: 0;
+    display: inline;
+  }
+
   #advanced-search-form .field + .field {
     border-top: 1px dotted rgba(75, 75, 75, 0.1);
     padding-top: 1.5em;
