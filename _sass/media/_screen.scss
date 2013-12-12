@@ -651,6 +651,36 @@ div[role=main] {
   }
 }
 
+.neatline.show {
+
+    div[role=main] h1 {
+        display:inline-block;
+    }
+
+
+    .nl-fullscreen {
+        display:inline;
+        @include adjust-font-size-to(15px);
+        @include adjust-leading-to(1,15px);
+        text-decoration:none;
+        margin-left: 0.25em;
+        &:before {
+            content: "(";
+            color: #999;
+        }
+
+        &:after {
+            content: ")";
+            color: #999;
+        }
+    }
+
+    #neatline-map {
+        clear:both;
+        margin:0;
+    }
+}
+
 footer[role=contentinfo] {
   @include beveled-line(before);
   text-align:center;

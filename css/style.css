@@ -1207,6 +1207,30 @@ section {
     margin-right: 0.375em;
   }
 
+  .neatline.show div[role=main] h1 {
+    display: inline-block;
+  }
+  .neatline.show .nl-fullscreen {
+    display: inline;
+    font-size: 0.75em;
+    line-height: 2em;
+    line-height: 2em;
+    text-decoration: none;
+    margin-left: 0.25em;
+  }
+  .neatline.show .nl-fullscreen:before {
+    content: "(";
+    color: #999;
+  }
+  .neatline.show .nl-fullscreen:after {
+    content: ")";
+    color: #999;
+  }
+  .neatline.show #neatline-map {
+    clear: both;
+    margin: 0;
+  }
+
   footer[role=contentinfo] {
     text-align: center;
   }
