@@ -1,7 +1,5 @@
 * {
   @include box-sizing(border-box);
-  margin:0;
-  padding:0;
 }
 
 @include establish-baseline;
@@ -23,6 +21,12 @@ body {
   position:relative;
   padding:0;
   @include container;
+
+  &.neatline.fullscreen {
+      max-width: 100%;
+      padding:0;
+      margin:0;
+  }
 }
 
 a {
@@ -575,6 +579,48 @@ div[role=main] {
       margin-top: rhythm(1);
     }
   }
+
+  .collection {
+
+    h2 {
+      margin-bottom:0;
+    }
+
+    & + .collection {
+      @include beveled-line;
+      @include leader(1);
+    }
+
+    .view-items-link {
+      margin-bottom:0;
+    }
+
+    @include at-breakpoint(12) {
+      .description {
+        @include span-columns(12, 18);
+      }
+
+      .meta {
+        @include span-columns(4 omega, 18);
+
+        h3 {
+            margin-top:0;
+        }
+      }
+    }
+  }
+}
+
+#collection-items {
+    .item {
+        
+        p {
+            @include adjust-font-size-to(15px);
+            @include adjust-leading-to(0.75,15px);
+        }
+
+    }
+
 }
 
 #outputs {

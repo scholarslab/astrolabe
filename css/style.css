@@ -480,8 +480,6 @@ section {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
   }
 
   * html {
@@ -521,6 +519,11 @@ section {
     content: "";
     display: table;
     clear: both;
+  }
+  body.neatline.fullscreen {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
   }
 
   a {
@@ -1150,6 +1153,27 @@ section {
     border-top: 1px solid rgba(75, 75, 75, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.75);
   }
+  .browse .collection h2 {
+    margin-bottom: 0;
+  }
+  .browse .collection + .collection {
+    margin-top: 1.5em;
+  }
+  .browse .collection + .collection:before {
+    display: block;
+    content: "";
+    height: 0;
+    border-top: 1px solid rgba(75, 75, 75, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+  }
+  .browse .collection .view-items-link {
+    margin-bottom: 0;
+  }
+  #collection-items .item p {
+    font-size: 0.75em;
+    line-height: 2em;
+    line-height: 1.5em;
+  }
 
   #outputs {
     margin-top: 3em;
@@ -1203,6 +1227,22 @@ section {
     margin-bottom: 1.875em;
   }
 }
+@media screen and (min-width: 1050px) {
+  .browse .collection .description {
+    width: 66.03774%;
+    float: left;
+    margin-right: 1.88679%;
+  }
+  .browse .collection .meta {
+    width: 20.75472%;
+    float: right;
+    margin-right: 0;
+  }
+  .browse .collection .meta h3 {
+    margin-top: 0;
+  }
+}
+
 @media screen and (min-width: 1050px) {
   body #admin-bar {
     text-align: right !important;
