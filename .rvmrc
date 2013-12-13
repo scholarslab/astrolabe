@@ -1,8 +1,0 @@
-rvm use 1.9.3@astrolabe
-
-if ! command -v bundle ; then
-  gem install bundler
-fi
-
-bundle install
-
