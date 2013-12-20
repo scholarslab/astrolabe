@@ -792,6 +792,9 @@ section {
     padding: 0;
     margin: 1.5em 0 1.5em 1.5em;
   }
+  header nav ul ul, footer nav ul ul, header nav ol ul, footer nav ol ul {
+    display: none;
+  }
   nav ul, nav ol {
     margin-left: 0;
     padding-left: 0;
@@ -981,9 +984,6 @@ section {
   header[role=banner] nav ul {
     text-align: center;
     line-height: 3em;
-  }
-  header[role=banner] nav ul ul {
-    display: none;
   }
   header[role=banner] nav .active a {
     color: #4b4b4b;

@@ -238,6 +238,13 @@ ul,ol {
   padding:0;
   margin: rhythm(1) 0 rhythm(1) rhythm(1);
 
+  header nav &,
+  footer nav & {
+      ul {
+          display:none;
+      }
+  }
+
   nav & {
     margin-left:0;
     padding-left:0;
@@ -415,10 +422,6 @@ header[role=banner] {
     ul {
       text-align:center;
       @include adjust-leading-to(2);
-
-      ul {
-          display:none;
-      }
     }
 
     .active {
