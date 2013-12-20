@@ -499,7 +499,7 @@ section {
     background-image: -o-linear-gradient(rgba(0, 0, 0, 0.1) 0%, transparent 200px), url("../images/bg.jpg");
     background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, transparent 200px), url("../images/bg.jpg");
     background-position: 0 2px;
-    border-top: 10px solid #483247;
+    border-top: 3px solid #483247;
   }
 
   body {
@@ -961,6 +961,9 @@ section {
   header[role=banner] a {
     text-decoration: none;
   }
+  header[role=banner] nav {
+    clear: both;
+  }
   header[role=banner] nav:before {
     display: block;
     content: "";
@@ -978,6 +981,9 @@ section {
   header[role=banner] nav ul {
     text-align: center;
     line-height: 3em;
+  }
+  header[role=banner] nav ul ul {
+    display: none;
   }
   header[role=banner] nav .active a {
     color: #4b4b4b;
