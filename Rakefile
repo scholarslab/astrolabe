@@ -7,29 +7,29 @@ task :default => [
 ]
 
 class PackageTask < Rake::PackageTask
-  #def package_dir_path()
-    #"#{package_dir}/#{@name}"
-  #end
-  #def package_name
-    #@name
-  #end
+  def package_dir_path()
+    "#{package_dir}/#{@name}"
+  end
+  def package_name
+    @name
+  end
 
-  #def basename
-    #@version ? "#{@name}-#{@version}" : @name
-  #end
+  def basename
+    @version ? "#{@name}-#{@version}" : @name
+  end
 
-  #def tar_bz2_file
-    #"#{basename}.tar.bz2"
-  #end
-  #def tar_gz_file
-    #"#{basename}.tar.gz"
-  #end
-  #def tgz_file
-    #"#{basename}.tgz"
-  #end
-  #def zip_file
-    #"#{basename}.zip"
-  #end
+  def tar_bz2_file
+    "#{basename}.tar.bz2"
+  end
+  def tar_gz_file
+    "#{basename}.tar.gz"
+  end
+  def tgz_file
+    "#{basename}.tgz"
+  end
+  def zip_file
+    "#{basename}.zip"
+  end
     def get_version()
         ini = IniFile.load('theme.ini')
         section = ini['theme']
@@ -46,11 +46,11 @@ PackageTask.new('astrolabe') do |p|
 
   p.package_files.include('README.md')
   p.package_files.include('LICENSE')
-  p.package_files.include('plugin.*')
-  p.package_files.include('*.php')
-  p.package_files.include('css/*')
-  p.package_files.include('images/*')
-  p.package_files.include('javascripts/*')
+  p.package_files.include('theme.*')
+  p.package_files.include('**/*.php')
+  p.package_files.include('css/**')
+  p.package_files.include('images/**')
+  p.package_files.include('javascripts/**')
 end
 
 
