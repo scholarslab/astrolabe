@@ -6,7 +6,7 @@
 </div>
 <?php endif; ?>
 
-<div id="featured">
+<div id="featured-content">
 <?php if (get_theme_option('Display Featured Item') !== '0'): ?>
 <div id="featured-item">
 <h2><?php echo __('Featured Item'); ?></h2>

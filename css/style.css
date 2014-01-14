@@ -570,12 +570,11 @@ section {
   h1 {
     font-size: 1.6em;
     line-height: 1.875em;
-    line-height: 1.875em;
+    margin: 0.9375em 0;
     text-shadow: rgba(255, 255, 255, 0.5) -1px 0;
   }
   div[role=main] h1:first-child {
     font-size: 2em;
-    line-height: 1.5em;
     line-height: 1.5em;
   }
 
@@ -583,26 +582,17 @@ section {
     font-size: 1.4em;
     line-height: 2.14286em;
     line-height: 1.07143em;
-    margin-top: 2.14286em;
-    padding-top: 0em;
-    padding-bottom: 0em;
-    margin-bottom: 1.07143em;
+    margin: 2.14286em 0 1.07143em;
   }
   h1 + h2, h1 ~ * h2:first-child {
     margin-top: 1.07143em;
-    padding-top: 0em;
-    padding-bottom: 0em;
-    margin-bottom: 1.07143em;
   }
 
   h3 {
     font-size: 1.2em;
     line-height: 1.25em;
     color: rgba(75, 75, 75, 0.75);
-    margin-top: 1.25em;
-    padding-top: 0em;
-    padding-bottom: 0em;
-    margin-bottom: 0em;
+    margin: 1.25em 0 0;
   }
   h2 + h3, h2 + * h3 {
     margin-top: 0 !important;
@@ -611,17 +601,10 @@ section {
   h4 {
     font-size: 1em;
     line-height: 1.5em;
-    font-weight: bold;
     margin-top: 3em;
-    padding-top: 0em;
-    padding-bottom: 0em;
-    margin-bottom: 0em;
   }
   h3 + h4 {
     margin-top: 1.5em;
-    padding-top: 0em;
-    padding-bottom: 0em;
-    margin-bottom: 1.5em;
   }
 
   h5 {
@@ -629,15 +612,9 @@ section {
     line-height: 1.5em;
     color: rgba(75, 75, 75, 0.75);
     margin-top: 3em;
-    padding-top: 0em;
-    padding-bottom: 0em;
-    margin-bottom: 1.5em;
   }
   h4 + h5 {
-    margin-top: 1.5em;
-    padding-top: 0em;
-    padding-bottom: 0em;
-    margin-bottom: 0em;
+    margin: 1.5em 0 0;
   }
 
   h6 {
@@ -645,16 +622,10 @@ section {
     line-height: 1.5em;
     font-style: italic;
     color: rgba(75, 75, 75, 0.75);
-    margin-top: 3em;
-    padding-top: 0em;
-    padding-bottom: 0em;
-    margin-bottom: 3em;
+    margin: 3em 0;
   }
   h5 + h6 {
-    margin-top: 1.5em;
-    padding-top: 0em;
-    padding-bottom: 0em;
-    margin-bottom: 1.5em;
+    margin: 1.5em 0;
   }
 
   h3 + p,
@@ -698,25 +669,26 @@ section {
   /* Forms */
   form {
     margin-top: 1.5em;
-    padding-top: 0em;
-    padding-bottom: 0em;
     margin-bottom: 1.5em;
   }
   form .field {
     margin-bottom: 1.5em;
   }
-  form fieldset {
+
+  fieldset {
     margin: 0;
     padding: 0;
     border: none;
   }
-  form textarea {
+
+  textarea {
     width: 100%;
   }
-  form textarea,
-  form input,
-  form select,
-  form button {
+
+  textarea,
+  input,
+  select,
+  button {
     font-family: "Cabin", "Lucida Grande", Verdana, sans-serif;
     color: #4b4b4b;
     font-size: 0.8em;
@@ -724,8 +696,9 @@ section {
     line-height: 1;
     padding: 0.46875em;
   }
-  form textarea,
-  form input[type=text] {
+
+  textarea,
+  input[type=text] {
     border: 1px solid rgba(75, 75, 75, 0.1);
     -webkit-box-shadow: 0;
     -moz-box-shadow: 0;
@@ -882,24 +855,6 @@ section {
     color: rgba(75, 75, 75, 0.5);
   }
 
-  .kicker {
-    margin: 0;
-    font-style: italic;
-    color: rgba(75, 75, 75, 0.75);
-  }
-  .kicker + * {
-    margin-top: 0 !important;
-  }
-
-  .byline {
-    margin: 1.5em 0 0;
-    color: rgba(75, 75, 75, 0.75);
-  }
-  .byline:before {
-    content: "by ";
-    font-style: italic;
-  }
-
   /* Have to use more specific selector to override Omeka core styles. */
   body #admin-bar {
     background: transparent !important;
@@ -928,7 +883,7 @@ section {
     border-bottom: 1px solid rgba(255, 255, 255, 0.75);
   }
   body #admin-bar ul {
-    line-height: 3.75em;
+    line-height: 2.5em;
   }
   body #admin-bar li a {
     text-decoration: none;
@@ -992,10 +947,8 @@ section {
   /* Simple Search */
   #search-container {
     position: relative;
-    margin-bottom: 1.5em;
     max-width: 56.60377%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 1.5em;
   }
   #search-container input {
     margin: 0;
@@ -1041,14 +994,12 @@ section {
     height: 3.75em;
     float: left;
     display: block;
-    margin-right: 2.12766%;
-    margin-top: 0.375em;
+    margin: 0.375em 2.12766% 1.5em 0;
   }
   #featured-item .item-description,
   #recent-items .item-description {
     margin-top: 0;
     font-size: 0.8em;
-    line-height: 1.875em;
     line-height: 1.875em;
   }
   #featured-item .item + .item,
@@ -1085,7 +1036,6 @@ section {
   #featured-exhibit .description {
     margin-top: 0;
     font-size: 0.8em;
-    line-height: 1.875em;
     line-height: 1.875em;
   }
 
@@ -1250,7 +1200,6 @@ section {
   footer[role=contentinfo] p, footer[role=contentinfo] ul {
     font-size: 0.8em;
     line-height: 1.875em;
-    line-height: 1.875em;
     margin-top: 1.875em;
     padding-top: 0em;
     padding-bottom: 0em;
@@ -1320,7 +1269,7 @@ section {
     clear: right;
   }
 
-  #featured {
+  #featured-content {
     width: 49.0566%;
     float: left;
     margin-right: 1.88679%;
